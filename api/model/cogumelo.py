@@ -14,6 +14,7 @@ class Cogumelo(Base):
         odor (int): Odor do cogumelo.
         gill_size (int): Tamanho das lâminas do cogumelo.
         gill_color (int): Cor das lâminas do cogumelo.
+        stalk_shape (int): Formato do caule do cogumelo.
         stalk_root (int): Raiz do caule do cogumelo.
         ring_type (int): Tipo de anéis no caule.
         spore_print_color (int): Cor da impressão das esporas.
@@ -41,7 +42,7 @@ class Cogumelo(Base):
     
     
     
-    def __init__(self, odor: int, name: str,
+    def __init__(self, name: str, odor: int, 
                  gill_size: int, gill_color: int,
                  stalk_shape: int, stalk_root: int, 
                  ring_type: int, spore_print_color: int, population: int, habitat: int,
