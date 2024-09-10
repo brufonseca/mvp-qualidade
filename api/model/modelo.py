@@ -1,37 +1,49 @@
 import pickle
 
 class ModeloML:
-    """Classe que representa um modelo de machine learning
+    """
+    Classe que representa um modelo de machine learning
     
-    ...
-    
-    Atributos
-    ---------
-    modelo: 
-        modelo de machine learning
+    Atributos:
+    modelo (object):  modelo de machine learning
     
     """
-
     def __init__(self, caminho_arquivo):
+        """
+        Inicializa a classe ModeloML
         
+        Args:
+        caminho_arquivo (str):  caminho para o arquivo do modelo
+        
+        """
         self.modelo = None
 
         self.carregar_modelo(caminho_arquivo)
 
-    def carregar_modelo(self, caminho_arquivo):
-        """Carrega o modelo a partir do caminho para o arquivo .pkl"""
+    def carregar_modelo(self):
+        """
+        Carrega o modelo a partir de um arquivo .pkl
+        
+        Returns:
+            object: modelo 
+        
+        """
         try:
-            with open(caminho_arquivo, 'rb') as arquivo:
+            with open(self.caminho_arquivo, 'rb') as arquivo:
                 self.modelo = pickle.load(arquivo)
         except FileNotFoundError:
-            print(f"Arquivo {caminho_arquivo} não encontrado.")
-        except pickle.PickleError:
-            print("Erro ao carregar o modelo a partir do arquivo.")
+            print(f"Arquivo {self.caminho_arquivo} não encontrado.")
         except Exception as e:
-            print(f"Erro: {e}")
+            print(f"Erro ao carregar o modelo a partir do arquivo.: {e}")
             
     def realizar_predicoes(self,dados_entrada):
-        """Realiza predicoes para os dados fornecidos"""
+        """
+        Realiza predições para os dados fornecidos
+        
+        Returns:
+            object: predicoes realizadas 
+        
+        """
         if self.modelo is None:
             raise Exception('Modelo não definido')
         

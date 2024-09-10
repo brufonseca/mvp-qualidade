@@ -1,29 +1,30 @@
 from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-import pandas as pd
+import pickle
 
 class PreProcessador:
     
     """
-    Classe para realizar o pré-processamento de dados para machine learning.
+    Classe para realizar o pré-processamento dos dados
 
     Atributos:
-        X (pd.DataFrame): Dados de entrada.
-        y (pd.Series): Rótulos de saída correspondentes aos dados de entrada.
-        tamanho_conjunto (float): Proporção dos dados a serem usados para teste.
-        semente (int): Semente para a randomização (para reprodução dos resultados).
-        scaler (object): Scaler para normalização/padronização dos dados (StandardScaler ou MinMaxScaler).
+        X (pd.DataFrame): dados de entrada.
+        y (pd.Series): dados de saída
+        tamanho_conjunto (float): proporção dos dados
+        semente (int): semente para a randomização
+        std_scaler (object): Scaler para normalização dos dados
+        min_max_scaler (object): Scaler para padronização dos dados 
     """
     
     def __init__(self, X, y, tamanho_conjunto=0.2, semente=42):
         """
-        Inicializa a classe PreProcessador com os dados, proporção de teste e estado aleatório.
+        Inicializa a classe PreProcessador 
 
         Args:
-            X (pd.DataFrame ou np.array): Dados de entrada.
-            y (pd.Series ou np.array): Rótulos de saída.
-            tamanho_conjunto (float): Proporção dos dados a serem usados para teste.
-            semente (int): Semente para a randomização.
+            X (pd.DataFrame): dados de entrada.
+            y (pd.Series): dados de saída
+            tamanho_conjunto (float): proporção dos dados
+            semente (int): semente para a randomização
         """
         self.X = X
         self.y = y
@@ -37,7 +38,7 @@ class PreProcessador:
         Separa os dados em conjuntos de treino e teste.
 
         Returns:
-            tuple: Dados de treino e teste, bem como rótulos correspondentes.
+            tuple: Dados de treino e teste
         """
         X_treino, X_teste, y_treino, y_teste = train_test_split(
             self.X, self.y, test_size=self.tamanho_conjunto, random_state=self.semente, stratify=self.y
@@ -52,7 +53,7 @@ class PreProcessador:
             n_splits (int): Número de dobras para a validação cruzada.
 
         Returns:
-            StratifiedKFold: Objeto StratifiedKFold configurado.
+            StratifiedKFold: Objeto StratifiedKFold
         """
         return StratifiedKFold(n_splits=n_splits, shuffle=True, semente=self.semente)
     
@@ -72,13 +73,8 @@ class PreProcessador:
     
     def definir_scalers(self):
         """
-        Retorna o scaler utilizado para normalização/padronização.
+        Define os scalers para normalização/padronização.
 
-        Returns:
-            object: Scaler utilizado (StandardScaler ou MinMaxScaler).
-        
-        Raises:
-            ValueError: Se o scaler ainda não tiver sido definido.
         """
-        self.std_scaler = StandardScaler()
-        self.min_max_scaler = MinMaxScaler()
+        #self.std_scaler = pickle.load(open('./ML/scalers/std_scaler_mushroom.pkl', 'rb'))
+        self.min_max_scaler = pickle.load(open('./ML/scalers/minmax_scaler_mushroom.pkl', 'rb'))
