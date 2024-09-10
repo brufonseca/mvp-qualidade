@@ -1,6 +1,7 @@
 from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import pickle
+import numpy as np
 
 class PreProcessador:
     
@@ -16,22 +17,42 @@ class PreProcessador:
         min_max_scaler (object): Scaler para padronização dos dados 
     """
     
-    def __init__(self, X, y, tamanho_conjunto=0.2, semente=42):
+    def __init__(self, tamanho_conjunto=0.2, semente=11) :
         """
         Inicializa a classe PreProcessador 
 
         Args:
-            X (pd.DataFrame): dados de entrada.
-            y (pd.Series): dados de saída
             tamanho_conjunto (float): proporção dos dados
             semente (int): semente para a randomização
         """
-        self.X = X
-        self.y = y
+        self.X = None
+        self.y = None
         self.tamanho_conjunto = tamanho_conjunto
         self.semente = semente
         self.std_scaler = None
         self.min_max_scaler = None
+    
+        
+    def preparar_dados_formulario(self,form):
+        X = np.array([
+            form.name,
+            form.odor,
+            form.gill_size,
+            form.gill_color,
+            form.stalk_shape,
+            form.stalk_root,
+            form.ring_type,
+            form.spore_print_color,
+            form.population,
+            form.habitat
+        ])
+        
+        X = X.reshape(1,-1)
+        self.X = X 
+        
+    def definir_dados_saida(self, y):
+        self.y = y
+        
         
     def separar_dados(self):
         """
