@@ -1,9 +1,8 @@
-from sqlite3 import IntegrityError
 from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect, request
 from urllib.parse import unquote
 
-from model import Session, Cogumelo, PreProcessador, Pipeline, ModeloML
+from model import Session, Cogumelo, PreProcessador, ModeloML
 from logger import logger
 
 from schemas.cogumelo import (
@@ -129,7 +128,6 @@ def realizar_predicao(body:CogumeloSchema):
         ring_type (int): Tipo de anéis no caule.
         spore_print_color (int): Cor da impressão das esporas.
         population (int): População do cogumelo no habitat.
-        habitat (int): Habitat do cogumelo.
         outcome (int, optional): Classe do cogumelo (se comestível ou venenoso).
 
     Returns:
@@ -139,31 +137,32 @@ def realizar_predicao(body:CogumeloSchema):
     
     # Recuperando os dados do formulário
     name = body.name
-    odor = body.odor
     gill_size = body.gill_size
     gill_color = body.gill_color
-    stalk_shape = body.stalk_shape
     stalk_root = body.stalk_root
     ring_type = body.ring_type
     spore_print_color = body.spore_print_color
+    odor = body.odor
     population = body.population
-    habitat = body.habitat
-
-    
+    bruises = body.bruises
+    stalk_surface_above_ring = body.stalk_surface_above_ring
     
     #Preparando os dados para o modelo
     pp = PreProcessador()
     pp.preparar_dados_formulario(body)
     X_entrada = pp.X
     
-    caminho_modelo = "./ML/pipelines/dt_mushroom_pipeline.pkl"
+    caminho_modelo = "./ML/models/dt_mushroom_classifier.pkl"
     
     modelo = ModeloML(caminho_modelo)
     
-    outcome = int(modelo.realizar_predicoes(X_entrada)[0])
+    predicoes = modelo.realizar_predicoes(X_entrada)
     
-    cogumelo = Cogumelo(name, odor,gill_size, gill_color, stalk_shape, stalk_root,
-                        ring_type, spore_print_color, population, habitat,outcome)
+    outcome = int(predicoes[0])
+    
+    cogumelo = Cogumelo(name,  gill_size, gill_color, stalk_root, ring_type, spore_print_color,
+                 odor, population, bruises, stalk_surface_above_ring,
+                 outcome)
     
     logger.debug(f"Adicionando cogumelo: '{cogumelo.name}'")
     

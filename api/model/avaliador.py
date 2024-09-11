@@ -35,7 +35,7 @@ class AvaliadorModelo:
         if self.X_teste is None or self.y_teste is None:
             raise ValueError("Dados não fornecidos")
         
-        previsoes = self.modelo.realizar_predicoes(self.X_teste)
+        predicoes = self.modelo.realizar_predicoes(self.X_teste)
         
-        acuracia = accuracy_score(self.y_teste, previsoes)
+        acuracia = accuracy_score(self.y_teste, predicoes)
         return acuracia

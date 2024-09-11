@@ -17,8 +17,9 @@ class ModeloML:
         
         """
         self.modelo = None
+        self.caminho_arquivo = caminho_arquivo
 
-        self.carregar_modelo(caminho_arquivo)
+        self.carregar_modelo()
 
     def carregar_modelo(self):
         """

@@ -1,10 +1,10 @@
 from sklearn.model_selection import train_test_split, StratifiedKFold
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import pickle
 import numpy as np
 
+
 class PreProcessador:
-    
+
     """
     Classe para realizar o pré-processamento dos dados
 
@@ -16,8 +16,8 @@ class PreProcessador:
         std_scaler (object): Scaler para normalização dos dados
         min_max_scaler (object): Scaler para padronização dos dados 
     """
-    
-    def __init__(self, tamanho_conjunto=0.2, semente=11) :
+
+    def __init__(self, tamanho_conjunto=0.2, semente=11):
         """
         Inicializa a classe PreProcessador 
 
@@ -31,29 +31,26 @@ class PreProcessador:
         self.semente = semente
         self.std_scaler = None
         self.min_max_scaler = None
-    
-        
-    def preparar_dados_formulario(self,form):
+
+    def preparar_dados_formulario(self, form):
         X = np.array([
-            form.name,
-            form.odor,
             form.gill_size,
             form.gill_color,
-            form.stalk_shape,
             form.stalk_root,
             form.ring_type,
             form.spore_print_color,
+            form.odor,
             form.population,
-            form.habitat
+            form.bruises,
+            form.stalk_surface_above_ring
         ])
-        
-        X = X.reshape(1,-1)
-        self.X = X 
-        
+
+        X = X.reshape(1, -1)
+        self.X = X
+
     def definir_dados_saida(self, y):
         self.y = y
-        
-        
+
     def separar_dados(self):
         """
         Separa os dados em conjuntos de treino e teste.
@@ -65,7 +62,7 @@ class PreProcessador:
             self.X, self.y, test_size=self.tamanho_conjunto, random_state=self.semente, stratify=self.y
         )
         return X_treino, X_teste, y_treino, y_teste
-    
+
     def validao_cruzada_estratificada(self, n_splits=5):
         """
         Cria objetos para validação cruzada estratificada.
@@ -77,25 +74,25 @@ class PreProcessador:
             StratifiedKFold: Objeto StratifiedKFold
         """
         return StratifiedKFold(n_splits=n_splits, shuffle=True, semente=self.semente)
-    
-    def normalizar_padronizar(self, metodo = 'padronizar'):
+
+    def normalizar_padronizar(self, metodo='padronizar'):
         """
         Normaliza ou padroniza os dados de entrada.
 
         """
-        
-        if metodo == 'padronizar':
+
+        """  if metodo == 'padronizar':
             scaler = self.std_scaler
         elif metodo == 'normalizar':
             scaler = self.min_max_scaler
-        
 
-        self.X = scaler.fit_transform(self.X)
-    
+        self.X = scaler.fit_transform(self.X) """
+
     def definir_scalers(self):
         """
         Define os scalers para normalização/padronização.
 
         """
-        #self.std_scaler = pickle.load(open('./ML/scalers/std_scaler_mushroom.pkl', 'rb'))
-        self.min_max_scaler = pickle.load(open('./ML/scalers/minmax_scaler_mushroom.pkl', 'rb'))
+        #self.std_scaler = pickle.load(
+        #    open('./ML/scalers/standard_scaler_mushroom.pkl', 'rb'))
+        # self.min_max_scaler = pickle.load(open('./ML/scalers/minmax_scaler_mushroom.pkl', 'rb'))

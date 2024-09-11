@@ -7,7 +7,6 @@ import os
 from model.base import Base
 from model.cogumelo import Cogumelo
 from model.modelo import ModeloML
-from model.pipeline import Pipeline
 from model.preprocessador import PreProcessador
 from model.avaliador import AvaliadorModelo
 from model.carregador import CarregadorDados
