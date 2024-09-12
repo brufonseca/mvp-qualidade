@@ -22,7 +22,8 @@ class CarregadorDados:
         """
         self.caminho = caminho
         self.delimitador = delimitador
-        self.dataset = None
+        self.dataset = self.carregar_dados()
+        
         
     def carregar_dados(self):
         """
@@ -30,7 +31,7 @@ class CarregadorDados:
 
         """
         try:
-            self.dataset = pd.read_csv(self.caminho, delimiter=self.delimitador)
+           return pd.read_csv(self.caminho, delimiter=self.delimitador)
         except Exception as e:
             raise Exception(f"Erro ao processar os dados: {e}")
         
