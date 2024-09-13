@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/matter.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>Classificação de Cogumelos</title>
+
+        <link rel="icon" type="image/png" href="img/mushroom.png" />
+    </head>
+    <body>
+
+        <header>
+            <div class="header-bar"></div>
+            <div class="title center-text">
+                <h2>Classificação de Cogumelos</h2>
+                <h3 class="italic">Comer ou não comer, eis a questão</h3>
+            </div>
+        </header>
+
+        <div id="btnContainer" class="container left-container">
+            <button class="matter-button-contained margin-10" onclick="showEntryForm()">Adicionar Cogumelo</button>
+        </div>
+
+         <!--Formulario para inserção de refeicoes e definicao da data de registro-->
+        <div id="newEntryContainer" class="new-entry-container" hidden>
+
+            <div class="form-container">
+                    kjlçjljlçjçjç
+            </div>
+        </div>
+
+         <!--Tabela com a lista de registros inseridos-->
+        <div id="tableContainer" class="container">
+            <table id="table" class="table">
+                <thead>
+                    <th>Nome</th>
+                    <th>Tamanho Lamelas</th>
+                    <th>Cor Lamelas</th>
+                    <th>Tipo Raiz</th>
+                    <th>Tipo Anel</th>
+                    <th>Cor Esporos</th>
+                    <th>Odor</th>
+                    <th>População</th>
+                    <th>Manchas</th>
+                    <th>Sup Caule Acima Anel</th>
+                    <th>Classificação</th>
+                    <th></th>
+                </thead>
+            </table>
+        </div>
+
+
+    <script src="scripts.js"></script>
+
+    </body>
+</html>
