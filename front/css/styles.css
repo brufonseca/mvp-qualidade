@@ -5,7 +5,7 @@
     --app-dark-primary-color: #af1222;
     --app-primary-text: #476242;
     --app-text: #FFFFFF;
-    --app-accent: #f6f3d4;
+    --app-accent: #6a864d;
 
     --matter-theme-rgb: 175,18,34; /* --dark-primary */
     --matter-primary-rgb: 187,199,110; /* --primary-color */
@@ -145,7 +145,7 @@ h4,h5{
 
 
 .form{
-    width: 100%;
+    /* width: 100%;
     margin-top: 10px;
 
     height: calc(100% - 62px);
@@ -154,7 +154,26 @@ h4,h5{
     display: flex;
     flex-direction: column;
     align-content: center;
+    align-items: center; */
+
+    gap: 20px;
+    margin-top: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.form-box{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-around;
+    align-items: flex-start;
 }
 
 .form-container{

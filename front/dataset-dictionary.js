@@ -1,234 +1,260 @@
 export const mushroomDatasetDictionary = {
-    "gill-size": {
-      description: "Tamanho da lamela (abaixo do chapéu do cogumelo)",
-      mapping: {
-        "b": 0, // broad (larga)
-        "n": 1  // narrow (estreita)
-      },
-      reverseMapping: {
-        0: "b",
-        1: "n"
-      },
-      labelMapping: {
-        0: "larga",
-        1: "estreita"
-      }
+  "gill_size": {
+    description: "Tamanho da lamela (abaixo do chapéu do cogumelo)",
+    mapping: {
+      "b": 0, // broad (larga)
+      "n": 1  // narrow (estreita)
     },
-    "gill-color": {
-      description: "Cor da lamela",
-      mapping: {
-        "k": 0, // black (preto)
-        "n": 1, // brown (marrom)
-        "b": 2, // buff (castanho-claro)
-        "h": 3, // chocolate
-        "g": 4, // gray (cinza)
-        "r": 5, // green (verde)
-        "o": 6, // orange (laranja)
-        "p": 7, // pink (rosa)
-        "u": 8, // purple (roxo)
-        "e": 9, // red (vermelho)
-        "w": 10, // white (branco)
-        "y": 11 // yellow (amarelo)
-      },
-      reverseMapping: {
-        0: "k",
-        1: "n",
-        2: "b",
-        3: "h",
-        4: "g",
-        5: "r",
-        6: "o",
-        7: "p",
-        8: "u",
-        9: "e",
-        10: "w",
-        11: "y"
-      },
-      labelMapping: {
-        0: "preto",
-        1: "marrom",
-        2: "castanho claro",
-        3: "chocolate",
-        4: "cinza",
-        5: "verde",
-        6: "laranja",
-        7: "rosa",
-        8: "roxo",
-        9: "vermelho",
-        10: "branco",
-        11: "amarelo"
-      }
+    reverseMapping: {
+      0: "b",
+      1: "n"
     },
-    "stalk-root": {
-      description: "Tipo de raiz do caule",
-      mapping: {
-        "b": 0, // bulbous (bulbosa)
-        "c": 1, // club (em forma de clube)
-        "u": 2, // cup (taça)
-        "e": 3, // equal (igual)
-        "z": 4, // rhizomorphs (rizomorfos)
-        "r": 5, // rooted (enraizada)
-        "?": 6  // missing (ausente)
-      },
-      reverseMapping: {
-        0: "b",
-        1: "c",
-        2: "u",
-        3: "e",
-        4: "z",
-        5: "r",
-        6: "?"
-      },
-      labelMapping: {
-        0: "bulbosa",
-        1: "clava",
-        2: "taça",
-        3: "uniforme",
-        4: "rizomorfa",
-        5: "enraizada",
-        6: "N/A"
-      }
-    },
-    "ring-type": {
-      description: "Tipo de anel no caule",
-      mapping: {
-        "c": 0, // cobwebby (teia de aranha)
-        "e": 1, // evanescent (efêmero)
-        "f": 2, // flaring (expandido)
-        "l": 3, // large (grande)
-        "n": 4, // none (nenhum)
-        "p": 5, // pendant (pendente)
-        "s": 6, // sheathing (encapado)
-        "z": 7  // zone (zona)
-      },
-      reverseMapping: {
-        0: "c",
-        1: "e",
-        2: "f",
-        3: "l",
-        4: "n",
-        5: "p",
-        6: "s",
-        7: "z"
-      },
-      labelMapping: {
-        0: "teia de aranha",
-        1: "efêmero",
-        2: "expandido",
-        3: "grande",
-        4: "nenhum",
-        5: "pendente",
-        6: "encapado",
-        7: "zona"
-      }
-    },
-    "spore-print-color": {
-      description: "Cor do esporo",
-      mapping: {
-        "k": 0, // black (preto)
-        "n": 1, // brown (marrom)
-        "b": 2, // buff (castanho-claro)
-        "h": 3, // chocolate
-        "r": 4, // green (verde)
-        "o": 5, // orange (laranja)
-        "u": 6, // purple (roxo)
-        "w": 7, // white (branco)
-        "y": 8 // yellow (amarelo)
-      },
-      reverseMapping: {
-        0: "k",
-        1: "n",
-        2: "b",
-        3: "h",
-        4: "r",
-        5: "o",
-        6: "u",
-        7: "w",
-        8: "y"
-      },
-      labelMapping: {
-        0: "preto",
-        1: "marrom",
-        2: "castanho-claro",
-        3: "chocolate",
-        4: "verde",
-        5: "laranja",
-        6: "roxo",
-        7: "branco",
-        8: "amarelo"
-      }
-    },
-    "odor": {
-      description: "Odor do cogumelo",
-      mapping: {
-        "a": 0, // almond (amêndoa)
-        "l": 1, // anise (anis)
-        "c": 2, // creosote
-        "y": 3, // fishy (cheiro de peixe)
-        "f": 4, // foul (fétido)
-        "m": 5, // musty (mofo)
-        "n": 6, // none (nenhum)
-        "p": 7, // pungent (pungente)
-        "s": 8  // spicy (picante)
-      },
-      reverseMapping: {
-        0: "a",
-        1: "l",
-        2: "c",
-        3: "y",
-        4: "f",
-        5: "m",
-        6: "n",
-        7: "p",
-        8: "s"
-      }
-    },
-    "population": {
-      description: "População de cogumelos",
-      mapping: {
-        "a": 0, // abundant (abundante)
-        "c": 1, // clustered (agrupado)
-        "n": 2, // numerous (numeroso)
-        "s": 3, // scattered (disperso)
-        "v": 4, // several (vários)
-        "y": 5  // solitary (solitário)
-      },
-      reverseMapping: {
-        0: "a",
-        1: "c",
-        2: "n",
-        3: "s",
-        4: "v",
-        5: "y"
-      }
-    },
-    "bruises": {
-      description: "Se o cogumelo apresenta machucados",
-      mapping: {
-        "t": 0, // bruises (sim)
-        "f": 1  // no bruises (não)
-      },
-      reverseMapping: {
-        0: "t",
-        1: "f"
-      }
-    },
-    "stalk-surface-above-ring": {
-      description: "Superfície do caule acima do anel",
-      mapping: {
-        "f": 0, // fibrous (fibroso)
-        "y": 1, // scaly (escamoso)
-        "k": 2, // silky (sedoso)
-        "s": 3  // smooth (liso)
-      },
-      reverseMapping: {
-        0: "f",
-        1: "y",
-        2: "k",
-        3: "s"
-      }
+    labelMapping: {
+      0: "Larga",
+      1: "Estreita"
     }
-  };
+  },
+  "gill_color": {
+    description: "Cor da lamela",
+    mapping: {
+      "k": 4, // black (preto)
+      "n": 5, // brown (marrom)
+      "b": 0, // buff (castanho-claro)
+      "h": 3, // chocolate
+      "g": 2, // gray (cinza)
+      "r": 8, // green (verde)
+      "o": 6, // orange (laranja)
+      "p": 7, // pink (rosa)
+      "u": 9, // purple (roxo)
+      "e": 1, // red (vermelho)
+      "w": 10, // white (branco)
+      "y": 11 // yellow (amarelo)
+    },
+    reverseMapping: {
+      4: "k",
+      5: "n",
+      0: "b",
+      3: "h",
+      2: "g",
+      8: "r",
+      6: "o",
+      7: "p",
+      9: "u",
+      1: "e",
+      10: "w",
+      11: "y"
+    },
+    labelMapping: {
+      4: "Preto",
+      5: "Marrom",
+      0: "Castanho claro",
+      3: "Chocolate",
+      2: "Cinza",
+      8: "Verde",
+      6: "Laranja",
+      7: "Rosa",
+      9: "Roxo",
+      1: "Vermelho",
+      10: "Branco",
+      11: "Amarelo"
+    }
+  },
+  "stalk_root": {
+    description: "Tipo de raiz do caule",
+    mapping: {
+      "b": 1, // bulbous (bulbosa)
+      "c": 2, // club (em forma de clube)
+      "e": 3, // equal (igual)
+      "?": 0  // missing (ausente)
+    },
+    reverseMapping: {
+      1: "b",
+      2: "c",
+      3: "e",
+      0: "?"
+    },
+    labelMapping: {
+      1: "Bulbosa",
+      2: "Clava",
+      3: "Uniforme",
+      0: "N/A"
+    }
+  },
+  "ring_type": {
+    description: "Tipo de anel no caule",
+    mapping: {
+      "e": 0, // evanescent (efêmero)
+      "f": 1, // flaring (expandido)
+      "l": 2, // large (grande)
+      "n": 3, // none (nenhum)
+      "p": 4, // pendant (pendente)
+    },
+    reverseMapping: {
+      0: "e",
+      1: "f",
+      2: "l",
+      3: "n",
+      4: "p",
+    },
+    labelMapping: {
+      0: "Efêmero",
+      1: "Expandido",
+      2: "Grande",
+      3: "Nenhum",
+      4: "Pendente",
+    }
+  },
+  "spore_print_color": {
+    description: "Cor do esporo",
+    mapping: {
+      "k": 2, // black (preto)
+      "n": 3, // brown (marrom)
+      "b": 0, // buff (castanho-claro)
+      "h": 1, // chocolate
+      "r": 5, // green (verde)
+      "o": 4, // orange (laranja)
+      "u": 6, // purple (roxo)
+      "w": 7, // white (branco)
+      "y": 8 // yellow (amarelo)
+    },
+    reverseMapping: {
+      2: "k",
+      3: "n",
+      0: "b",
+      1: "h",
+      5: "r",
+      4: "o",
+      6: "u",
+      7: "w",
+      8: "y"
+    },
+    labelMapping: {
+      2: "Preto",
+      3: "Marrom",
+      0: "Castanho claro",
+      1: "Chocolate",
+      5: "Verde",
+      4: "Laranja",
+      6: "Roxo",
+      7: "Branco",
+      8: "Amarelo"
+    }
+  },
+  "odor": {
+    description: "Odor do cogumelo",
+    mapping: {
+      "a": 0, // almond (amêndoa)
+      "l": 3, // anise (anis)
+      "c": 1, // creosote
+      "y": 8, // fishy (cheiro de peixe)
+      "f": 2, // foul (fétido)
+      "m": 4, // musty (mofo)
+      "n": 5, // none (nenhum)
+      "p": 6, // pungent (pungente)
+      "s": 7  // spicy (picante)
+    },
+    reverseMapping: {
+      0: "a",
+      3: "l",
+      1: "c",
+      8: "y",
+      2: "f",
+      4: "m",
+      5: "n",
+      6: "p",
+      7: "s"
+    },
+    labelMapping: {
+      0: "Amêndoa",
+      3: "Anis",
+      1: "Creosote",
+      8: "Peixe",
+      2: "Fétido",
+      4: "Mofo",
+      5: "Nenhum",
+      6: "Pungente",
+      7: "Picante"
+    }
+  },
+  "population": {
+    description: "População de cogumelos",
+    mapping: {
+      "a": 0, // abundant (abundante)
+      "c": 1, // clustered (agrupado)
+      "n": 2, // numerous (numeroso)
+      "s": 3, // scattered (disperso)
+      "v": 4, // several (vários)
+      "y": 5  // solitary (solitário)
+    },
+    reverseMapping: {
+      0: "a",
+      1: "c",
+      2: "n",
+      3: "s",
+      4: "v",
+      5: "y"
+    },
+    labelMapping: {
+      0: "Abundante",
+      1: "Agrupado",
+      2: "Numeroso",
+      3: "Disperso",
+      4: "Vários",
+      5: "Solitário"
+    }
+  },
+  "bruises": {
+    description: "Se o cogumelo apresenta machucados",
+    mapping: {
+      "t": 0, // bruises (sim)
+      "f": 1  // no bruises (não)
+    },
+    reverseMapping: {
+      0: "t",
+      1: "f"
+    },
+    labelMapping: {
+      0: "Sim",
+      1: "Não"
+    }
+  },
+  "stalk_surface_above_ring": {
+    description: "Superfície do caule acima do anel",
+    mapping: {
+      "f": 0, // fibrous (fibroso)
+      "y": 3, // scaly (escamoso)
+      "k": 1, // silky (sedoso)
+      "s": 2  // smooth (liso)
+    },
+    reverseMapping: {
+      0: "f",
+      3: "y",
+      1: "k",
+      2: "s"
+    },
+    labelMapping: {
+      0: "Fibroso",
+      3: "Escamoso",
+      1: "Sedoso",
+      2: "Liso"
+    }
+  },
+  "outcome": {
+    description: "Classificação do cogumelo",
+    mapping: {
+      "e": 0, // edible (comestivel)
+      "p": 1, // poisonous (venenoso)
+    },
+    reverseMapping: {
+      0: "e",
+      1: "p",
+    },
+    labelMapping: {
+      0: "Comestível",
+      1: "Venenoso",
+    }
+  }
+};
   
   console.log(mushroomDatasetDictionary);
   

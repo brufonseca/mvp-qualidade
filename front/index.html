@@ -1,66 +1,170 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/matter.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/matter.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        <title>Classificação de Cogumelos</title>
+		<title>Classificação de Cogumelos</title>
 
-        <link rel="icon" type="image/png" href="img/mushroom.png" />
-    </head>
-    <body>
+		<link rel="icon" type="image/png" href="img/mushroom.png" />
+	</head>
+	<body>
+		<header>
+			<div class="header-bar"></div>
+			<div class="title center-text">
+				<h2>Classificação de Cogumelos</h2>
+				<h3 class="italic">Comer ou não comer, eis a questão</h3>
+			</div>
+		</header>
 
-        <header>
-            <div class="header-bar"></div>
-            <div class="title center-text">
-                <h2>Classificação de Cogumelos</h2>
-                <h3 class="italic">Comer ou não comer, eis a questão</h3>
-            </div>
-        </header>
+		<div id="btnContainer" class="container left-container">
+			<button class="matter-button-contained margin-10" onclick="showEntryForm()">Adicionar Cogumelo</button>
+		</div>
 
-        <div id="btnContainer" class="container left-container">
-            <button class="matter-button-contained margin-10" onclick="showEntryForm()">Adicionar Cogumelo</button>
-        </div>
+		<!--Formulario para inserção de refeicoes e definicao da data de registro-->
+		<div id="newEntryContainer" class="new-entry-container" hidden>
+			<div class="form-container">
+				<div class="form-title center-text">
+					<span class="spacer"></span>
+					<h3>Novo Registro</h3>
+					<div class="left-container">
+						<button class="matter-button-contained secondary-icon-button" onclick="commitOperation()">
+							<i class="fa fa-save"></i>
+						</button>
+						<button class="matter-button-contained secondary-icon-button" onclick="resetForm()">
+							<i class="fa fa-close"></i>
+						</button>
+					</div>
+				</div>
+                <div class="form-box">
+                    <div class="form primary-scroll">
+                        <div class="">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required  />
+                        </div>
+                        <div class="">
+                            <label for="gill-size-select">Tamanho Lamelas</label>
+                            <select id="gill-size-select">
+                                <option value="0">Larga</option>
+                                <option value="1">Estreita</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="gill_color_select">Cor Lamelas</label>
+                            <select id="gill_color_select">
+                                <option value="0">Larga</option>
+                                <option value="1">Estreita</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="stalk_root_select">Tipo Raiz</label>
+                            <select id="stalk_root_select">
+                                <option value="0">Indefinida</option>
+                                <option value="1">Bulbosa</option>
+                                <option value="2">Clava</option>
+                                <option value="3">Unifirme</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="ring_type_select">Tipo Anel</label>
+                            <select id="ring_type_select">
+                                <option value="0">Efêmero</option>
+                                <option value="1">Expandido</option>
+                                <option value="2">Grande</option>
+                                <option value="3">Nenhum</option>
+                                <option value="4">Pendente</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="spore_print_color_select">Cor Esporos</label>
+                            <select id="spore_print_color_select">
+                                <option value="0">Castanho claro</option>
+                                <option value="1">Chocolate</option>
+                                <option value="2">Preto</option>
+                                <option value="3">Marrom</option>
+                                <option value="4">Laranja</option>
+                                <option value="5">Verde</option>
+                                <option value="6">Roxo</option>
+                                <option value="7">Branco</option>
+                                <option value="8">Amarelo</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="odor_select">Odor</label>
+                            <select id="odor_select">
+                                <option value="0">Amêndoa</option>
+                                <option value="1">Creosote</option>
+                                <option value="2">Fétido</option>
+                                <option value="3">Anis</option>
+                                <option value="4">Mofo</option>
+                                <option value="5">Nenhum</option>
+                                <option value="6">Pungente</option>
+                                <option value="7">Picante</option>
+                                <option value="8">Peixe</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="population_select">População</label>
+                            <select id="population_select">
+                                <option value="0">Abundante</option>
+                                <option value="1">Agrupado</option>
+                                <option value="2">Numeroso</option>
+                                <option value="3">Disperso</option>
+                                <option value="4">Vários</option>
+                                <option value="5">Solitário</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="bruises_select">Manchas</label>
+                            <select id="bruises_select">
+                                <option value="0">Sim</option>
+                                <option value="1">Não</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="stalk_surface_above_ring_select">Sup Caule Acima Anel</label>
+                            <select id="stalk_surface_above_ring_select">
+                                <option value="0">Fibroso</option>
+                                <option value="1">Escamoso</option>
+                                <option value="2">Sedoso</option>
+                                <option value="3">Liso</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
 
-         <!--Formulario para inserção de refeicoes e definicao da data de registro-->
-        <div id="newEntryContainer" class="new-entry-container" hidden>
+		<!--Tabela com a lista de registros inseridos-->
+		<div id="tableContainer" class="container">
+			<table id="table" class="table">
+				<thead>
+					<th>Nome</th>
+					<th>Tamanho Lamelas</th>
+					<th>Cor Lamelas</th>
+					<th>Tipo Raiz</th>
+					<th>Tipo Anel</th>
+					<th>Cor Esporos</th>
+					<th>Odor</th>
+					<th>População</th>
+					<th>Manchas</th>
+					<th>Sup Caule Acima Anel</th>
+					<th>Classificação</th>
+					<th></th>
+				</thead>
+			</table>
+		</div>
 
-            <div class="form-container">
-                    kjlçjljlçjçjç
-            </div>
-        </div>
-
-         <!--Tabela com a lista de registros inseridos-->
-        <div id="tableContainer" class="container">
-            <table id="table" class="table">
-                <thead>
-                    <th>Nome</th>
-                    <th>Tamanho Lamelas</th>
-                    <th>Cor Lamelas</th>
-                    <th>Tipo Raiz</th>
-                    <th>Tipo Anel</th>
-                    <th>Cor Esporos</th>
-                    <th>Odor</th>
-                    <th>População</th>
-                    <th>Manchas</th>
-                    <th>Sup Caule Acima Anel</th>
-                    <th>Classificação</th>
-                    <th></th>
-                </thead>
-            </table>
-        </div>
-
-
-    <script src="scripts.js"></script>
-
-    </body>
+		<script src="scripts.js"></script>
+	</body>
 </html>
