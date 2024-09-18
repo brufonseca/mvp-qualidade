@@ -28,23 +28,14 @@
 		</header>
 
 		<div id="btnContainer" class="container left-container">
-			<button class="matter-button-contained margin-10" onclick="showEntryForm()">Adicionar Cogumelo</button>
+			<button class="matter-button-contained margin-10" onclick="showForm()">Adicionar Cogumelo</button>
 		</div>
 
 		<!--Formulario para inserção de refeicoes e definicao da data de registro-->
-		<div id="newEntryContainer" class="new-entry-container" hidden>
+		<div id="newDataContainer" class="new-data-container" hidden>
 			<div class="form-container">
 				<div class="form-title center-text">
-					<span class="spacer"></span>
 					<h3>Novo Registro</h3>
-					<div class="left-container">
-						<button class="matter-button-contained secondary-icon-button" onclick="commitOperation()">
-							<i class="fa fa-save"></i>
-						</button>
-						<button class="matter-button-contained secondary-icon-button" onclick="resetForm()">
-							<i class="fa fa-close"></i>
-						</button>
-					</div>
 				</div>
                 <div class="form-box">
                     <div class="form primary-scroll">
@@ -52,21 +43,32 @@
                             <label for="name">Nome</label>
                             <input type="text" id="name" name="name" required  />
                         </div>
-                        <div class="">
-                            <label for="gill-size-select">Tamanho Lamelas</label>
-                            <select id="gill-size-select">
+                        <div class="select">
+                            <label for="gill_size_select">Tamanho Lamelas</label>
+                            <select id="gill_size_select">
                                 <option value="0">Larga</option>
                                 <option value="1">Estreita</option>
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="gill_color_select">Cor Lamelas</label>
                             <select id="gill_color_select">
-                                <option value="0">Larga</option>
-                                <option value="1">Estreita</option>
+                                <option value="0">Castanho claro</option>
+                                <option value="1">Vermelho</option>
+                                <option value="2">Cinza</option>
+                                <option value="3">Chocolate</option>
+                                <option value="4">Preto</option>
+                                <option value="5">Marrom</option>
+                                <option value="6">Laranja</option>
+                                <option value="7">Rosa</option>
+                                <option value="8">Verde</option>
+                                <option value="9">Roxo</option>
+                                <option value="10">Branco</option>
+                                <option value="11">Amarelo</option>
+
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="stalk_root_select">Tipo Raiz</label>
                             <select id="stalk_root_select">
                                 <option value="0">Indefinida</option>
@@ -75,7 +77,7 @@
                                 <option value="3">Unifirme</option>
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="ring_type_select">Tipo Anel</label>
                             <select id="ring_type_select">
                                 <option value="0">Efêmero</option>
@@ -85,7 +87,7 @@
                                 <option value="4">Pendente</option>
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="spore_print_color_select">Cor Esporos</label>
                             <select id="spore_print_color_select">
                                 <option value="0">Castanho claro</option>
@@ -99,7 +101,7 @@
                                 <option value="8">Amarelo</option>
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="odor_select">Odor</label>
                             <select id="odor_select">
                                 <option value="0">Amêndoa</option>
@@ -113,25 +115,25 @@
                                 <option value="8">Peixe</option>
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="population_select">População</label>
                             <select id="population_select">
                                 <option value="0">Abundante</option>
                                 <option value="1">Agrupado</option>
                                 <option value="2">Numeroso</option>
-                                <option value="3">Disperso</option>
+                                <option value="3">Espalhado</option>
                                 <option value="4">Vários</option>
                                 <option value="5">Solitário</option>
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="bruises_select">Manchas</label>
                             <select id="bruises_select">
                                 <option value="0">Sim</option>
                                 <option value="1">Não</option>
                             </select>
                         </div>
-                        <div class="">
+                        <div class="select">
                             <label for="stalk_surface_above_ring_select">Sup Caule Acima Anel</label>
                             <select id="stalk_surface_above_ring_select">
                                 <option value="0">Fibroso</option>
@@ -140,8 +142,13 @@
                                 <option value="3">Liso</option>
                             </select>
                         </div>
+                        <div class="left-container">
+                            <button class="matter-button-contained margin-10" onclick="commitOperation()">Classificar</button>
+                            <button class="matter-button-contained margin-10" onclick="resetForm()">Cancelar</button>
+                        </div>
                     </div>
                 </div>
+                
 			</div>
 		</div>
 

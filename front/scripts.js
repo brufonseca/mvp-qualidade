@@ -1,5 +1,5 @@
 
-const getEntriesForList = () => {
+const getDataForList = () => {
 
   let url = 'http://127.0.0.1:5000/listar_cogumelos';
   fetch(url, {
@@ -7,15 +7,8 @@ const getEntriesForList = () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      data["cogumelos"].forEach(entry => {
-
-
-        console.log(entry);
-
-        addEntryToList(entry);
-
-
-
+      data["cogumelos"].forEach(item => {
+        addDataToList(item);
       })
     })
     .catch((error) => {
@@ -24,9 +17,10 @@ const getEntriesForList = () => {
 
 }
 
-getEntriesForList();
+getDataForList();
 
-const addEntryToList = (entry) => {
+const addDataToList = (data) => {
+
 
   let columns = ["name", 'gill_size', 'gill_color', 'stalk_root', 'ring_type', 'spore_print_color', 'odor', 'population',
     'bruises', 'stalk_surface_above_ring', 'outcome'];
@@ -36,35 +30,32 @@ const addEntryToList = (entry) => {
 
 
   let row = table.insertRow();
-  row.id = `${entry.id}_Row`;
-
-
-
-
+  let name = data.name.replace(' ',"_");
+  row.id = `${name}_Row`;
 
   for (let i = 0; i < columns.length; i++) {
 
     let cell = row.insertCell(i);
-    let cellValue =  entry[columns[i]];
+    let cellValue = data[columns[i]];
     let colName = columns[i];
 
-    if(colName!='name'){
+    if (colName != 'name') {
       cellValue = mushroomDatasetDictionary[colName].labelMapping[cellValue];
     }
-    
-    
+
+
     cell.textContent = cellValue;
   }
 
-  insertRemoveButton(row.insertCell(-1), entry.id)
+  insertRemoveButton(row.insertCell(-1), data.name);
 
 }
 
 //exibe o formulario de novo registro e esconde a tabela e o botao de adicionar novo registro
-const showEntryForm = () => {
+const showForm = () => {
 
-  let newEntryContainer = document.getElementById('newEntryContainer');
-  newEntryContainer.removeAttribute('hidden');
+  let newDataContainer = document.getElementById('newDataContainer');
+  newDataContainer.removeAttribute('hidden');
 
   let tableContainer = document.getElementById('tableContainer');
   tableContainer.setAttribute('hidden', null);
@@ -74,27 +65,127 @@ const showEntryForm = () => {
 
 }
 
+//Limpa os dados do form, esconde o form e exibe a lista e o botão de inserção de novo registro
+const resetForm = () => {
+
+  let nameElement = document.getElementById('name');
+  nameElement.value = '';
+
+  document.querySelectorAll('select')
+    .forEach(element => {
+      element.value = 0;
+    });
+
+  let tableContainer = document.getElementById('tableContainer');
+  tableContainer.removeAttribute('hidden');
+
+  let btnContainer = document.getElementById('btnContainer');
+  btnContainer.removeAttribute('hidden');
+
+  let newDataContainer = document.getElementById('newDataContainer');
+  newDataContainer.setAttribute('hidden', null);
+
+}
+
+//Método para executar o commit das operações realizadas no formulário
+const commitOperation = () => {
+  let formData = processData();
+  if (formData === undefined) {
+    return;
+  }
+  
+  postData(formData);
+  resetForm();
+  
+
+}
+
+
+//Metodo para processar os dados inseridos no formulario
+const processData = () => {
+
+
+  let data = {};
+  data["name"] = document.getElementById("name").value;
+
+
+  document.querySelectorAll('select')
+    .forEach(element => {
+
+
+      let attr = element.id.replace("_select", "");
+      data[attr] = element.value;
+
+
+
+    });
+
+  return data;
+
+}
+
+
+
 //Seção com métodos para criar botões programaticamente
-const insertRemoveButton = (parent, entryId) => {
+const insertRemoveButton = (parent, name) => {
   let removeBtn = document.createElement("button");
-  removeBtn.setAttribute('entryId', entryId);
+  removeBtn.setAttribute('name', name);
   removeBtn.classList.add('icon-button', 'matter-button-contained');
   removeBtn.innerHTML = '<i class="fa fa-trash">';
   parent.appendChild(removeBtn);
 
-  removeBtn.onclick = () => removeEntryFromList(entryId);
+  removeBtn.onclick = () => removeDataFromList(name);
 
 }
 
-const removeEntryFromList = (entryId) => {
 
-  let row = document.getElementById(`${entryId}_Row`);
+
+
+const removeDataFromList = (name) => {
+
+  let rowName = name.replace(" ","_");
+
+  let row = document.getElementById(`${rowName}_Row`);
 
   if (confirm("Deseja remover o registro?")) {
     row.remove();
-    //removeEntry(entryId);
+    removeData(name);
   }
 
+}
+
+const postData = (data) => {
+
+
+  let url = 'http://127.0.0.1:5000/inserir_predicao';
+
+
+  
+  fetch(url, {
+      method: 'post',
+      body:  JSON.stringify(data),
+      headers: { "Content-type": "application/json; charset=UTF-8" }
+  })
+      .then((response) =>  response.json())
+      .then((data) => {
+        console.log(data)
+        window.location.reload();
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+
+}
+
+const removeData = (name) => {
+  let url = `http://127.0.0.1:5000/deletar_cogumelo?name=${name}`;
+  fetch(url, {
+      method: 'delete'
+  })
+      .then((response) => response.json())
+      .catch((error) => {
+          console.error('Error:', error);
+      });
 }
 
 
