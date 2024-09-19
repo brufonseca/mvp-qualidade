@@ -194,10 +194,6 @@ const removeData = (name) => {
 const mushroomDatasetDictionary = {
   "gill_size": {
     description: "Tamanho da lamela (abaixo do chapéu do cogumelo)",
-    mapping: {
-      "b": 0, // broad (larga)
-      "n": 1  // narrow (estreita)
-    },
     reverseMapping: {
       0: "b",
       1: "n"
@@ -209,20 +205,6 @@ const mushroomDatasetDictionary = {
   },
   "gill_color": {
     description: "Cor da lamela",
-    mapping: {
-      "k": 4, // black (preto)
-      "n": 5, // brown (marrom)
-      "b": 0, // buff (castanho-claro)
-      "h": 3, // chocolate
-      "g": 2, // gray (cinza)
-      "r": 8, // green (verde)
-      "o": 6, // orange (laranja)
-      "p": 7, // pink (rosa)
-      "u": 9, // purple (roxo)
-      "e": 1, // red (vermelho)
-      "w": 10, // white (branco)
-      "y": 11 // yellow (amarelo)
-    },
     reverseMapping: {
       4: "k",
       5: "n",
@@ -254,12 +236,6 @@ const mushroomDatasetDictionary = {
   },
   "stalk_root": {
     description: "Tipo de raiz do caule",
-    mapping: {
-      "b": 1, // bulbous (bulbosa)
-      "c": 2, // club (em forma de clube)
-      "e": 3, // equal (igual)
-      "?": 0  // missing (ausente)
-    },
     reverseMapping: {
       1: "b",
       2: "c",
@@ -275,13 +251,6 @@ const mushroomDatasetDictionary = {
   },
   "ring_type": {
     description: "Tipo de anel no caule",
-    mapping: {
-      "e": 0, // evanescent (efêmero)
-      "f": 1, // flaring (expandido)
-      "l": 2, // large (grande)
-      "n": 3, // none (nenhum)
-      "p": 4, // pendant (pendente)
-    },
     reverseMapping: {
       0: "e",
       1: "f",
@@ -299,17 +268,6 @@ const mushroomDatasetDictionary = {
   },
   "spore_print_color": {
     description: "Cor do esporo",
-    mapping: {
-      "k": 2, // black (preto)
-      "n": 3, // brown (marrom)
-      "b": 0, // buff (castanho-claro)
-      "h": 1, // chocolate
-      "r": 5, // green (verde)
-      "o": 4, // orange (laranja)
-      "u": 6, // purple (roxo)
-      "w": 7, // white (branco)
-      "y": 8 // yellow (amarelo)
-    },
     reverseMapping: {
       2: "k",
       3: "n",
@@ -335,17 +293,6 @@ const mushroomDatasetDictionary = {
   },
   "odor": {
     description: "Odor do cogumelo",
-    mapping: {
-      "a": 0, // almond (amêndoa)
-      "l": 3, // anise (anis)
-      "c": 1, // creosote
-      "y": 8, // fishy (cheiro de peixe)
-      "f": 2, // foul (fétido)
-      "m": 4, // musty (mofo)
-      "n": 5, // none (nenhum)
-      "p": 6, // pungent (pungente)
-      "s": 7  // spicy (picante)
-    },
     reverseMapping: {
       0: "a",
       3: "l",
@@ -371,14 +318,6 @@ const mushroomDatasetDictionary = {
   },
   "population": {
     description: "População de cogumelos",
-    mapping: {
-      "a": 0, // abundant (abundante)
-      "c": 1, // clustered (agrupado)
-      "n": 2, // numerous (numeroso)
-      "s": 3, // scattered (disperso)
-      "v": 4, // several (vários)
-      "y": 5  // solitary (solitário)
-    },
     reverseMapping: {
       0: "a",
       1: "c",
@@ -398,10 +337,6 @@ const mushroomDatasetDictionary = {
   },
   "bruises": {
     description: "Se o cogumelo apresenta manchas",
-    mapping: {
-      "t": 0, // bruises (sim)
-      "f": 1  // no bruises (não)
-    },
     reverseMapping: {
       0: "t",
       1: "f"
@@ -413,12 +348,6 @@ const mushroomDatasetDictionary = {
   },
   "stalk_surface_above_ring": {
     description: "Superfície do caule acima do anel",
-    mapping: {
-      "f": 0, // fibrous (fibroso)
-      "y": 3, // scaly (escamoso)
-      "k": 1, // silky (sedoso)
-      "s": 2  // smooth (liso)
-    },
     reverseMapping: {
       0: "f",
       3: "y",
@@ -434,10 +363,6 @@ const mushroomDatasetDictionary = {
   },
   "outcome": {
     description: "Classificação do cogumelo",
-    mapping: {
-      "e": 0, // edible (comestivel)
-      "p": 1, // poisonous (venenoso)
-    },
     reverseMapping: {
       0: "e",
       1: "p",

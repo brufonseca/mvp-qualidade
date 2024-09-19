@@ -11,16 +11,18 @@ class Cogumelo(Base):
 
     Atributos:
         id (int): Identificador único para cada registro.
-        name (string) : Nome identificador do cogumelo
-        gill_size (str): Tamanho das lamelas do cogumelo.
-        gill_color (str): Cor das lamelas.
-        stalk_root (str): Tipo de raiz do caule.
-        ring_type (str): Tipo de anel presente no caule.
-        spore_print_color (str): Cor do esporo do cogumelo.
-        odor (str): Odor característico do cogumelo.
-        population (str): População onde o cogumelo é encontrado.
-        bruises (bool): Indica se o cogumelo apresenta hematomas.
-        stalk_surface_above_ring (str): Superfície do caule acima do anel.
+        name (str) : Nome identificador do cogumelo
+        gill_size (int): Tamanho das lamelas do cogumelo.
+        gill_color (int): Cor das lamelas.
+        stalk_root (int): Tipo de raiz do caule.
+        ring_type (int): Tipo de anel presente no caule.
+        spore_print_color (int): Cor do esporo do cogumelo.
+        odor (int): Odor característico do cogumelo.
+        population (int): População onde o cogumelo é encontrado.
+        bruises (int): Indica se o cogumelo apresenta hematomas.
+        stalk_surface_above_ring (int): Superfície do caule acima do anel.
+        outcome (int, optional): Classe do cogumelo .
+        data_insercao (datetime): Data e hora da inserção do registro no banco de dados.
     """
 
     __tablename__ = 'cogumelo'
@@ -46,17 +48,18 @@ class Cogumelo(Base):
         Inicializa uma instância da classe Cogumelo
 
         Args:
-            name (string) : Nome identificador do cogumelo
-            gill_size (str): Tamanho das lamelas do cogumelo.
-            gill_color (str): Cor das lamelas.
-            stalk_root (str): Tipo de raiz do caule.
-            ring_type (str): Tipo de anel presente no caule.
-            spore_print_color (str): Cor do esporo do cogumelo.
-            odor (str): Odor característico do cogumelo.
-            population (str): População onde o cogumelo é encontrado.
-            bruises (bool): Indica se o cogumelo apresenta hematomas.
-            stalk_surface_above_ring (str): Superfície do caule acima do anel.
-            outcome (int, optional): Classe do cogumelo (se comestível ou venenoso).
+            name (str) : Nome identificador do cogumelo
+            gill_size (int): Tamanho das lamelas do cogumelo.
+            gill_color (int): Cor das lamelas.
+            stalk_root (int): Tipo de raiz do caule.
+            ring_type (int): Tipo de anel presente no caule.
+            spore_print_color (int): Cor do esporo do cogumelo.
+            odor (int): Odor característico do cogumelo.
+            population (int): População onde o cogumelo é encontrado.
+            bruises (int): Indica se o cogumelo apresenta hematomas.
+            stalk_surface_above_ring (int): Superfície do caule acima do anel.
+            outcome (int): Classe do cogumelo.
+            data_insercao (datetime): Data e hora da inserção do registro no banco de dados.
         """
         self.name = name
         self.gill_size = gill_size

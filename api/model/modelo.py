@@ -42,7 +42,7 @@ class ModeloML:
         Realiza predições para os dados fornecidos
         
         Returns:
-            object: predicoes realizadas 
+            array: predicoes realizadas 
         
         """
         if self.modelo is None:
