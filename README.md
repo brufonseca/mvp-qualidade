@@ -1,6 +1,6 @@
 # MVP Qualidade de Software, Segurança e Sistemas Inteligentes 🚀
 
-Bem-vindo ao repositório do MVP da Sprint de Qualidade de Software, Segurança e Sistemas Inteligentes! Este projeto tem como objetivo : **treinar um modelo de Machine Learning para classificar cogumelos como comestíveis ou venenosos**. Vamos lá!
+Bem-vindo ao repositório do MVP da Sprint de Qualidade de Software, Segurança e Sistemas Inteligentes! Este projeto tem como objetivo : **treinar um modelo de Machine Learning para classificar cogumelos como comestíveis ou venenosos**.
 
 🍄 Comer ou não comer, eis a questão 🍄
 
