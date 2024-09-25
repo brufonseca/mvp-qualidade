@@ -8,7 +8,7 @@ Bem-vindo ao repositório do MVP da Sprint de Qualidade de Software, Segurança 
 ## Tecnologias Utilizadas ⚙️
 
 - **Backend**: Flask 
-- **Frontend**: HTML, CSS, JavaScript (o trio maravilha da web)
+- **Frontend**: HTML, CSS, JavaScript
 - **Ambiente de Desenvolvimento**: Jupyter Notebooks 
 - **Controle de Versão**: Git 
 - **Documentação**: Markdown 
