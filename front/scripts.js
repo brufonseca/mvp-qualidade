@@ -106,7 +106,7 @@ const processData = () => {
 
 
   let data = {};
-  data["name"] = document.getElementById("name").value;
+  data["name"] = document.getElementById("name").value || 'Cogumelo';
 
 
   document.querySelectorAll('select')
