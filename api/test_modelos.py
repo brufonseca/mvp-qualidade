@@ -36,7 +36,7 @@ def test_modelo_lr():
     
     acuracia_lr = avaliador_lr.calcular_acuracia()
     
-    assert acuracia_lr < 1.00
+    assert acuracia_lr > 0.85
     
 def test_modelo_rf():
     """
