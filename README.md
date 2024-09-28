@@ -33,9 +33,9 @@ Pronto para fazer sua API brilhar? Siga esses passos simples:
 2. **Criar e ativar um ambiente virtual**:
 
     ````bash
-    virtualenv venv
-    source venv/bin/activate  #  Linux ou Mac
-    venv\Scripts\activate     #  Windows
+    python -m venv env
+    source env/bin/activate  #  Linux ou Mac
+    exenv\Scripts\activate     #  Windows
 
 
 3. **Instalar as dependências**:
