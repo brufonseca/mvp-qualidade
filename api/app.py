@@ -171,8 +171,7 @@ def realizar_predicao(body: CogumeloSchema):
 
         if session.query(Cogumelo).filter(Cogumelo.name == body.name).first():
             error_msg = "Cogumelo já existente na base :/"
-            logger.warning(f"Erro ao adicionar cogumelo '{
-                           cogumelo.name}', {error_msg}")
+            logger.warning(f"Erro ao adicionar cogumelo '{cogumelo.name}', {error_msg}")
             return {"message": error_msg}, 409
 
         session.add(cogumelo)
@@ -182,6 +181,5 @@ def realizar_predicao(body: CogumeloSchema):
 
     except Exception as e:
         error_msg = "Não foi possível salvar novo cogumelo :/"
-        logger.warning(f"Erro ao adicionar cogumelo '{
-                       cogumelo.name}', {error_msg}")
+        logger.warning(f"Erro ao adicionar cogumelo '{cogumelo.name}', {error_msg}")
         return {"message": error_msg}, 400
